@@ -9,8 +9,9 @@ import tkinter as tk
 
 follow_button = "follow_btn.png"
 min_follow = max_follow = min_espera = max_espera = pos_url = pos_final_cabecalho = region_cabeçalho = 0
+dia_atual = datetime.now().strftime("%d-%m-%Y")
 
-# Checa se existe o arquivo configuracoes_de_follow.json, coordenadas.json e follow_btn.png
+# Checa se existe o arquivo configuracoes_de_follow.json, parametros.json e follow_btn.png
 # Carrega dados desses arquivos
 def checa_configs():
     global follow_config, min_follow, max_follow, min_espera, max_espera, pos_url, pos_final_cabecalho, region_cabeçalho
@@ -32,14 +33,14 @@ def checa_configs():
         return False
     
     try:
-        with open('coordenadas.json', 'r') as arquivo:
-            coordenadas_config = json.load(arquivo)
+        with open("parametros.json", "r") as arquivo:
+            parametros_config = json.load(arquivo)
     except FileNotFoundError:
-        print("O arquivo de coordenadas não existe. Configure-o antes e tente novamente.")
+        print("O arquivo de parametros não existe. Configure-o antes e tente novamente.")
         return False
     else:
-        pos_url = coordenadas_config['pos_url']
-        pos_final_cabecalho = coordenadas_config['pos_final_cabecalho']
+        pos_url = parametros_config["pos_url"]
+        pos_final_cabecalho = parametros_config["pos_final_cabecalho"]
 
         root = tk.Tk()
         largura_tela = root.winfo_screenwidth()
@@ -48,7 +49,7 @@ def checa_configs():
 
 def follow(url):
     pyautogui.click(pos_url) 
-    pyautogui.hotkey('ctrl', 'a')
+    pyautogui.hotkey("ctrl", "a")
     pyautogui.write(url)
     pyautogui.press("enter") 
     time.sleep(4)
@@ -56,15 +57,15 @@ def follow(url):
 
     pos_follow = pyautogui.locateOnScreen(follow_button, confidence=0.8, region= region_cabeçalho)
     if pos_follow == None:
-        print('img de follow nao encontrada, pulando perfil')
+        print("img de follow nao encontrada, pulando perfil")
         return False
     else:
-        print('img encontrada')
+        print("img encontrada")
         pyautogui.click(pos_follow)
 
 def aguarde(min, max):
     tempo = random.randint(min, max)
-    print("Aguardando " + str(tempo) + " segundos para ir para o proximo perfil")
+    print("Aguardando" + str(tempo) + " segundos para ir para o proximo perfil")
     time.sleep(tempo)
 
 
@@ -78,33 +79,37 @@ def segue_perfil():
     print("Quantidade de contas a seguir: ", qnt_follow)
 
     # Carrega o arquivo JSON
-    with open('lista_de_contas.json') as file:
+    with open("lista_de_contas.json") as file:
         lista_de_contas = json.load(file)
 
     # Itera sobre cada objeto no array
     for obj in lista_de_contas:
-        if qnt_follow <= 0:
-            break
+        
 
         # Verifica se a chave "status" tem o valor "Nao seguiu"
-        if obj.get("status") == "Nao seguiu":
+        if obj.get("Status") == "Nao seguiu":
             # Imprime a chave "url" do objeto
-            if follow(obj.get("url")):
+            if follow(obj.get("URL")) != False:
                 # Atualiza o valor da chave "status" para "Ja seguiu"
-                print("Seguindo ", obj.get("Nome de usuario"))
-                obj["status"] = "Ja seguiu"
-                obj["Dia do Follow"] = datetime.now().strftime('%d-%m-%Y')
-                aguarde(min_espera, max_espera)
+                print("Seguindo", obj.get("Nome de usuario"))
+                obj["Status"] = "Ja seguiu"
+                obj["Dia do Follow"] = dia_atual
                 qnt_follow-=1
+
+                if qnt_follow <= 0:
+                    break
+                else:
+                    aguarde(min_espera, max_espera)
             else:
-                obj["status"] = "Erro"
+                obj["Dia do Follow"] = dia_atual
+                obj["Status"] = "Erro"
                 aguarde(min_espera, max_espera)
 
 
 
     # Salva as alterações no arquivo JSON
-    with open('lista_de_contas.json', "w") as file:
-        json.dump(lista_de_contas, file)
+    with open("lista_de_contas.json", "w") as file:
+        json.dump(lista_de_contas, file, indent=4)
     
 
 segue_perfil()

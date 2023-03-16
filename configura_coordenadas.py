@@ -16,7 +16,7 @@ def keydown(tecla):
     global config, campo_atual
     if tecla == pynput.keyboard.Key.esc:
         return False
-    elif tecla == pynput.keyboard.KeyCode(char = '1'):
+    elif tecla == pynput.keyboard.KeyCode(char = "1"):
         posicao = pega_pos()
         if posicao:
             if campo_atual == "url":
@@ -25,7 +25,7 @@ def keydown(tecla):
                 return False
             elif campo_atual == "botao de seguir":
                 config["pos_follow"] = posicao
-                pyautogui.screenshot('follow.png', region=(posicao[0]-30, posicao[1]-30, 60, 60))
+                pyautogui.screenshot("follow.png", region=(posicao[0]-30, posicao[1]-30, 60, 60))
                 campo_atual = "pos_final_cabecalho"
                 return False
             elif campo_atual == "final da bio":
@@ -44,11 +44,11 @@ def solicita(campo):
 def configura_coordenadas():
     global config
     print("Iniciando configuração...")
-    solicita('url')
-    solicita('botao de seguir')
-    solicita('final da bio')
+    solicita("url")
+    solicita("botao de seguir")
+    solicita("final da bio")
     print("Configuração concluída!")
-    with open('coordenadas.json', 'w') as f:
+    with open("coordenadas.json", "w") as f:
         json.dump(config, f)
 
 configura_coordenadas()
