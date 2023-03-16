@@ -1,6 +1,6 @@
 {
-    "minimo de follows por dia": "5",
-    "maximo de follows por dia": "10",
-    "tempo minimo entre follows": "30",
-    "tempo maximo entre follows": "60"
+    "minimo de follows por dia": 5,
+    "maximo de follows por dia": 6,
+    "tempo minimo entre follows": 1,
+    "tempo maximo entre follows": 5
 }

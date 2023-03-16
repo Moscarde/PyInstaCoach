@@ -98,4 +98,4 @@ def analisa_contas():
     listener.start()
     listener.join()
 
-analisa_contas()
+

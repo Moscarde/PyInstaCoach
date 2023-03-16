@@ -11,21 +11,21 @@ follow_button = "follow_btn.png"
 min_follow = max_follow = min_espera = max_espera = pos_url = pos_final_cabecalho = region_cabeçalho = 0
 dia_atual = datetime.now().strftime("%d-%m-%Y")
 
-# Checa se existe o arquivo configuracoes_de_follow.json, parametros.json e follow_btn.png
+# Checa se existe o arquivo parametros.json, parametros.json e follow_btn.png
 # Carrega dados desses arquivos
 def checa_configs():
-    global follow_config, min_follow, max_follow, min_espera, max_espera, pos_url, pos_final_cabecalho, region_cabeçalho
+    global min_follow, max_follow, min_espera, max_espera, pos_url, pos_final_cabecalho, region_cabeçalho
     try:
-        with open("configuracoes_de_follow.json", "r") as arquivo:
-            follow_config = json.load(arquivo)
+        with open("parametros.json", "r") as arquivo:
+            parametros_config = json.load(arquivo)
     except FileNotFoundError:
         print("O arquivo de configuração de follow não existe. Configure-o antes e tente novamente.")
         return False
     else:
-        min_follow = follow_config["minimo de follows por dia"]
-        max_follow = follow_config["maximo de follows por dia"]
-        min_espera = follow_config["tempo minimo entre follows"]
-        max_espera = follow_config["tempo maximo entre follows"]
+        min_follow = parametros_config["minimo de follows por dia"]
+        max_follow = parametros_config["maximo de follows por dia"]
+        min_espera = parametros_config["tempo minimo entre follows"]
+        max_espera = parametros_config["tempo maximo entre follows"]
 
     follow_btn = "follow_btn.png"
     if os.path.isfile(follow_btn) == False:
@@ -33,14 +33,14 @@ def checa_configs():
         return False
     
     try:
-        with open("parametros.json", "r") as arquivo:
-            parametros_config = json.load(arquivo)
+        with open("coordenadas.json", "r") as arquivo:
+            coordenadas_config = json.load(arquivo)
     except FileNotFoundError:
-        print("O arquivo de parametros não existe. Configure-o antes e tente novamente.")
+        print("O arquivo de coordenadas não existe. Configure-o antes e tente novamente.")
         return False
     else:
-        pos_url = parametros_config["pos_url"]
-        pos_final_cabecalho = parametros_config["pos_final_cabecalho"]
+        pos_url = coordenadas_config["pos_url"]
+        pos_final_cabecalho = coordenadas_config["pos_final_cabecalho"]
 
         root = tk.Tk()
         largura_tela = root.winfo_screenwidth()
@@ -65,7 +65,7 @@ def follow(url):
 
 def aguarde(min, max):
     tempo = random.randint(min, max)
-    print("Aguardando" + str(tempo) + " segundos para ir para o proximo perfil")
+    print("Aguardando " + str(tempo) + " segundos para ir para o proximo perfil")
     time.sleep(tempo)
 
 
@@ -111,5 +111,3 @@ def segue_perfil():
     with open("lista_de_contas.json", "w") as file:
         json.dump(lista_de_contas, file, indent=4)
     
-
-segue_perfil()

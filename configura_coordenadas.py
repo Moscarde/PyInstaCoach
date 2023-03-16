@@ -25,7 +25,7 @@ def keydown(tecla):
                 return False
             elif campo_atual == "botao de seguir":
                 config["pos_follow"] = posicao
-                pyautogui.screenshot("follow.png", region=(posicao[0]-30, posicao[1]-30, 60, 60))
+                pyautogui.screenshot("follow_btn.png", region=(posicao[0]-30, posicao[1]-30, 60, 60))
                 campo_atual = "pos_final_cabecalho"
                 return False
             elif campo_atual == "final da bio":
@@ -51,4 +51,3 @@ def configura_coordenadas():
     with open("coordenadas.json", "w") as f:
         json.dump(config, f)
 
-configura_coordenadas()

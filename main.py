@@ -17,21 +17,29 @@ def obter_opcao_desejada():
     return opcao.strip()
 
 
-# Fluxo principal do programa
-exibir_menu()
-opcao = obter_opcao_desejada()
+def main():
+    # Fluxo principal do programa
+    exibir_menu()
+    opcao = obter_opcao_desejada()
 
-if opcao == "1":
-    print("Configurando coordenadas...")
-    configura_coordenadas()
-elif opcao == "2":
-    print("Configurando parametros...")
-    configura_parametros()
-elif opcao == "3":
-    print("Analisando contas...")
-    analisa_contas()
-elif opcao == "4":
-    print("Seguindo usuários...")
-    segue_perfil()
-else:
-    print("Opção inválida. Tente novamente.")
+    if opcao == "1":
+        print("Configurando coordenadas...")
+        configura_coordenadas()
+        main()
+    elif opcao == "2":
+        print("Configurando parametros...")
+        configura_parametros()
+        main()
+    elif opcao == "3":
+        print("Analisando contas...")
+        analisa_contas()
+        main()
+    elif opcao == "4":
+        print("Seguindo usuários...")
+        segue_perfil()
+        main()
+    else:
+        print("Opção inválida. Tente novamente.")
+        main()
+
+main()
