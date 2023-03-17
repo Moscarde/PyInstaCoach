@@ -1,8 +1,8 @@
-# PyInstaCoach
+# PyInstaCoach 💻📷🚀
 
 Esse script tem como objetivo ajudar na análise de contas no Instagram, facilitando a criação de um banco de contas com maior probabilidade de engajamento e permitindo seguir, visualizar stories e curtir publicações automaticamente.
 
-## Funcionalidades
+## Funcionalidades 🛠️
 
 -   Captura de posições e imagens da tela para criar um arquivo de configuração
 -   Auxílio na análise de contas para criar um banco de contas com maior probabilidade de engajamento
@@ -10,16 +10,15 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 -   Visualiza stories automaticamente de acordo com o que foi definido nos arquivos de configuração
 -   Curte publicações automaticamente de acordo com o que foi definido nos arquivos de configuração
 
-## Tecnologias utilizadas
+## Tecnologias utilizadas 🚀
 
--   Python 3.6+
--   PyAutoGUI
--   OpenCV
--   Numpy
+-   Python 3.6+ 🐍
+-   PyAutoGUI 🖱️
+-   OpenCV 📷
 
 ## Como usar
 
-1.  Clone o repositório: `git clone https://github.com/seunome/nome-do-repositorio.git`
+1.  Clone o repositório: `git clone https://github.com/Moscarde/PyInstaCoach.git`
 2.  Instale as dependências: `pip install -r requirements.txt`
 3.  Execute o script: `python main.py`
 4.  Escolha uma opção e siga os passos
