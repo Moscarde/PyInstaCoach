@@ -16,7 +16,7 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 -   PyAutoGUI 🖱️
 -   OpenCV 📷
 
-## Como usar
+## Como usar 🤔
 
 1.  Clone o repositório: `git clone https://github.com/Moscarde/PyInstaCoach.git`
 2.  Instale as dependências: `pip install -r requirements.txt`
@@ -24,9 +24,9 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 4.  Escolha uma opção e siga os passos
 
 
-## Arquivos de configuração
+## Arquivos de configuração 📝
 
-Os arquivos de configurações são coordenadas.json e parametros.json que contém as seguintes informações:
+Os arquivos de configurações são `coordenadas.json` e `parametros.json` que contém as seguintes informações:
 
 ```
 {
@@ -50,13 +50,13 @@ Os arquivos de configurações são coordenadas.json e parametros.json que cont�
 
 As configurações do arquivo podem ser ajustadas de acordo com as necessidades do usuário diretamente no .json ou pelo main.py
 
-## Prints e GIFs
-Breve
+## Prints e GIFs 📸🎥
+Breve ↻
 
-## Limitações
+## Limitações ⚠️
 
 O uso desse script pode violar os termos de serviço do Instagram e resultar no bloqueio da conta. O uso é de responsabilidade do usuário.
 
-## Conclusão
+## Conclusão 📝
 
 Esse script pode ser uma ferramenta útil para ajudar na análise de contas no Instagram e aumentar o engajamento do perfil. É importante lembrar que o uso é de responsabilidade do usuário e que o script pode violar os termos de serviço do Instagram.
