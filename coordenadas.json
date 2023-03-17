@@ -1,1 +1,18 @@
-{"pos_url": [376, 53], "pos_follow": [656, 128], "pos_final_cabecalho": [559, 364]}
+{
+    "pos_url": [
+        327,
+        55
+    ],
+    "pos_follow": [
+        594,
+        135
+    ],
+    "pos_foto_perfil": [
+        291,
+        231
+    ],
+    "pos_final_cabecalho": [
+        528,
+        341
+    ]
+}

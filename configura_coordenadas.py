@@ -21,12 +21,13 @@ def keydown(tecla):
         if posicao:
             if campo_atual == "url":
                 config["pos_url"] = posicao
-                campo_atual = "follow"
                 return False
             elif campo_atual == "botao de seguir":
                 config["pos_follow"] = posicao
                 pyautogui.screenshot("follow_btn.png", region=(posicao[0]-30, posicao[1]-30, 60, 60))
-                campo_atual = "pos_final_cabecalho"
+                return False
+            elif campo_atual == "foto de perfil":
+                config["pos_foto_perfil"] = posicao
                 return False
             elif campo_atual == "final da bio":
                 config["pos_final_cabecalho"] = posicao
@@ -46,6 +47,7 @@ def configura_coordenadas():
     print("Iniciando configuração...")
     solicita("url")
     solicita("botao de seguir")
+    solicita("foto de perfil")
     solicita("final da bio")
     print("Configuração concluída!")
     with open("coordenadas.json", "w") as f:

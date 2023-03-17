@@ -8,13 +8,13 @@ import tkinter as tk
 
 
 follow_button = "follow_btn.png"
-min_follow = max_follow = min_espera = max_espera = pos_url = pos_final_cabecalho = region_cabeçalho = 0
+min_follow = max_follow = min_espera = max_espera = pos_url = pos_foto_perfil = pos_final_cabecalho = region_cabeçalho = 0
 dia_atual = datetime.now().strftime("%d-%m-%Y")
 
 # Checa se existe o arquivo parametros.json, parametros.json e follow_btn.png
 # Carrega dados desses arquivos
 def checa_configs():
-    global min_follow, max_follow, min_espera, max_espera, pos_url, pos_final_cabecalho, region_cabeçalho
+    global min_follow, max_follow, min_espera, max_espera, pos_url, pos_foto_perfil, pos_final_cabecalho, region_cabeçalho
     try:
         with open("parametros.json", "r") as arquivo:
             parametros_config = json.load(arquivo)
@@ -41,6 +41,7 @@ def checa_configs():
     else:
         pos_url = coordenadas_config["pos_url"]
         pos_final_cabecalho = coordenadas_config["pos_final_cabecalho"]
+        pos_foto_perfil = coordenadas_config["pos_foto_perfil"]
 
         root = tk.Tk()
         largura_tela = root.winfo_screenwidth()
@@ -62,6 +63,12 @@ def follow(url):
     else:
         print("img encontrada")
         pyautogui.click(pos_follow)
+        time.sleep(1)
+        pyautogui.click(pos_foto_perfil)
+        time.sleep(2)
+        pyautogui.hotkey("right")
+
+
 
 def aguarde(min, max):
     tempo = random.randint(min, max)
@@ -103,7 +110,6 @@ def segue_perfil():
             else:
                 obj["Dia do Follow"] = dia_atual
                 obj["Status"] = "Erro"
-                aguarde(min_espera, max_espera)
 
 
 
