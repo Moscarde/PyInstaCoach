@@ -4,7 +4,6 @@ from analisa_contas import analisa_contas
 from segue_perfil import segue_perfil
 
 def exibir_menu():
-    print("Bem-vindo ao nosso programa!")
     print("Escolha uma das opções abaixo:")
     print(" [1] Configurar coordenadas")
     print(" [2] Configurar quantidade de follows diarias e intervalos")

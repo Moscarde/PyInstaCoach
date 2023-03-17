@@ -5,11 +5,15 @@ import pyautogui
 import os
 from datetime import datetime
 import tkinter as tk
+import clipboard
 
 
 follow_button = "follow_btn.png"
+like_button = "like_btn.png"
+
 min_follow = max_follow = min_espera = max_espera = pos_url = pos_foto_perfil = pos_final_cabecalho = region_cabeçalho = 0
 dia_atual = datetime.now().strftime("%d-%m-%Y")
+publicacoes_btn = "publicacoes_btn.png"
 
 # Checa se existe o arquivo parametros.json, parametros.json e follow_btn.png
 # Carrega dados desses arquivos
@@ -48,6 +52,29 @@ def checa_configs():
         root.destroy()
         region_cabeçalho = [0, 0, largura_tela, pos_final_cabecalho[1]]
 
+
+def curte_publicacao():
+    pos_publicacoes_btn = pyautogui.locateOnScreen(publicacoes_btn)
+    if pos_publicacoes_btn == None:
+            print("img de publicações nao encontrada")
+            return
+    else:
+        pyautogui.click(pos_publicacoes_btn[0]-50, pos_publicacoes_btn[1]+70)
+        time.sleep(2)
+        pos_like = pyautogui.locateOnScreen(like_button)
+        if pos_like == None:
+            print("img de like nao encontrada")
+        else:
+            pyautogui.click(like_button)
+            time.sleep(1)
+            pyautogui.hotkey("esc")
+
+
+def visualisa_stories():
+    pyautogui.click(pos_foto_perfil)
+    time.sleep(2)
+    pyautogui.hotkey("right")
+
 def follow(url):
     pyautogui.click(pos_url) 
     pyautogui.hotkey("ctrl", "a")
@@ -63,10 +90,12 @@ def follow(url):
     else:
         print("img encontrada")
         pyautogui.click(pos_follow)
-        time.sleep(1)
-        pyautogui.click(pos_foto_perfil)
+        time.sleep(1.5)
+
+        curte_publicacao()
         time.sleep(2)
-        pyautogui.hotkey("right")
+        visualisa_stories()
+        
 
 
 
@@ -117,3 +146,4 @@ def segue_perfil():
     with open("lista_de_contas.json", "w") as file:
         json.dump(lista_de_contas, file, indent=4)
     
+

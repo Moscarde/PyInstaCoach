@@ -29,15 +29,16 @@ def keydown(tecla):
             elif campo_atual == "foto de perfil":
                 config["pos_foto_perfil"] = posicao
                 return False
-            elif campo_atual == "final da bio":
+            elif campo_atual == "aba publicacoes":
                 config["pos_final_cabecalho"] = posicao
+                pyautogui.screenshot("publicacoes_btn.png", region=(posicao[0]-40, posicao[1]-25, 80, 50))
                 return False
     return True
 
 def solicita(campo):
     global campo_atual
     campo_atual = campo
-    print(f"Coloque o mouse sobre o campo de {campo} e pressione a tecla 1")
+    print(f"Coloque o mouse sobre o CENTRO do campo de {campo} e pressione a tecla 1")
     listener = pynput.keyboard.Listener(on_press=keydown)
     listener.start()
     listener.join()
@@ -48,7 +49,7 @@ def configura_coordenadas():
     solicita("url")
     solicita("botao de seguir")
     solicita("foto de perfil")
-    solicita("final da bio")
+    solicita("aba publicacoes")
     print("Configuração concluída!")
     with open("coordenadas.json", "w") as f:
         json.dump(config, f)
