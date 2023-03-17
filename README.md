@@ -29,16 +29,25 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 
 Os arquivos de configurações são coordenadas.json e parametros.json que contém as seguintes informações:
 
-`{
-    {"pos_url": [441, 60], "pos_follow": [662, 134], "pos_foto_perfil": [274, 204], "pos_final_cabecalho": [420, 362]}
-}` 
+```
+{
+    {
+    "pos_url": [441, 60],
+    "pos_follow": [662, 134],
+    "pos_foto_perfil": [274, 204],
+    "pos_final_cabecalho": [420, 362]
+    }
+}
+```
 
-`{
+```
+{
     "minimo de follows por dia": 4,
     "maximo de follows por dia": 10,
     "tempo minimo entre follows": 10,
     "tempo maximo entre follows": 20
-}`
+}
+```
 
 As configurações do arquivo podem ser ajustadas de acordo com as necessidades do usuário diretamente no .json ou pelo main.py
 
