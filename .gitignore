@@ -1,6 +1,5 @@
 lista_de_contas.json
 __pycache__/
-
 resources/configurations/coordenadas_analise.json
 resources/configurations/coordenadas_segue.json
 parametros.json

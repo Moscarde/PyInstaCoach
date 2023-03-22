@@ -11,6 +11,7 @@ from modules.manipulacoes_json import *
 from modules.configura_parametros import configura_parametros
 from modules.configura_coordenadas import configura_coordenadas
 from modules.print_color import *
+from tqdm import tqdm
 
 
 follow_button = "resources/img/follow_btn.png"
@@ -139,7 +140,8 @@ def follow(url):
 def aguarde(min, max):
     tempo = random.randint(min, max)
     print("Aguardando " + str(tempo) + " segundos para ir para o proximo perfil")
-    time.sleep(tempo)
+    for i in tqdm(range(tempo)):
+        time.sleep(1)
 
 
 def tecla_pressionada(key):
