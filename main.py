@@ -1,44 +1,44 @@
-from configura_coordenadas import configura_coordenadas
-from configura_parametros import configura_parametros
-from analisa_contas import analisa_contas
-from segue_perfil import segue_perfil
+from modules.configura_parametros import configura_parametros
+from modules.analisa_contas import analisa_contas
+from modules.segue_contas import segue_contas
+from modules.configura_coordenadas import *
+from modules._ import _
+from modules.print_color import *
 
 def exibir_menu():
-    print("Escolha uma das opções abaixo:")
-    print(" [1] Configurar coordenadas")
-    print(" [2] Configurar quantidade de follows diarias e intervalos")
-    print(" [3] Analisar contas")
-    print(" [4] Seguir usuários")
+    print_menu("Escolha uma das opções abaixo e pressione ENTER.")
+
+    print_menu(" [1] Analisar e salvar contas")
+    print_menu(" [2] Seguir contas salvas")
+    print_menu(" [3] Configurar quantidade de follows diarias e intervalos")
+    print_menu(" [4] Fechar script")
 
 
 def obter_opcao_desejada():
-    opcao = input("Digite a opção desejada e pressione ENTER: ")
+    opcao = input("> ")
     return opcao.strip()
 
 
 def main():
-    # Fluxo principal do programa
     exibir_menu()
     opcao = obter_opcao_desejada()
 
     if opcao == "1":
-        print("Configurando coordenadas...")
-        configura_coordenadas()
-        main()
-    elif opcao == "2":
-        print("Configurando parametros...")
-        configura_parametros()
-        main()
-    elif opcao == "3":
-        print("Analisando contas...")
         analisa_contas()
         main()
-    elif opcao == "4":
-        print("Seguindo usuários...")
-        segue_perfil()
+    elif opcao == "2":
+        segue_contas()
         main()
+    elif opcao == "3":
+        configura_parametros()
+        main()
+    elif opcao == "4":
+        print("Fechando script...")
+        exit()
+    elif opcao == "5":
+        _()
     else:
         print("Opção inválida. Tente novamente.")
-        main()
+    main()
 
 main()

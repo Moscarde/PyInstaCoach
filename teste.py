@@ -1,23 +1,9 @@
-import pygetwindow as gw
-import time
 import pyautogui
+import time
+from pynput import keyboard
+from termcolor import colored
 
-def pega_pos():
-    global pos_url, pos_follow, pos_final_cabecalho, campo_atual
-    pos = pyautogui.position()
-    print(f"Posição detectada: ", pos )
-    print("....")
-    return pos
+cores =["black", "red", "green", 'yellow', 'blue', 'magenta', 'cyan', 'white', 'light_grey', 'dark_grey', 'light_red', 'light_green', 'light_yellow', 'light_blue', 'light_magenta', 'light_cyan']
 
-def printa_pos():
-    posicao = pega_pos()
-    pyautogui.screenshot("pub.png", region=(posicao[0]-40, posicao[1]-30, 80, 60))
-
-
-time.sleep(3)
-
-def acha():
-    pyautogui.click('publicacoes_btn.png')
-
-# printa_pos()
-acha()
+for cor in cores:
+    print(colored(f'Essa eh a cor {cor}', f'{cor}'))
