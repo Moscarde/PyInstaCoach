@@ -14,7 +14,6 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 
 -   Python 3.6+ 🐍
 -   PyAutoGUI 🖱️
--   OpenCV 📷
 
 ## Como usar 🤔
 
@@ -26,25 +25,24 @@ Esse script tem como objetivo ajudar na análise de contas no Instagram, facilit
 
 ## Arquivos de configuração 📝
 
-Os arquivos de configurações são `coordenadas.json` e `parametros.json` que contém as seguintes informações:
+Os arquivos de configurações são `follow_coordinates.json`, `analyze_coordinates.json` `parameters.json` que contém as seguintes informações:
 
 ```
 {
-    {
-    "pos_url": [441, 60],
-    "pos_follow": [662, 134],
-    "pos_foto_perfil": [274, 204],
-    "pos_final_cabecalho": [420, 362]
-    }
+    "URL": [412, 58],
+    "Follow Btn": [657, 131],
+    "Profile Picture": [277, 222],
+    "Head End": [536, 356]
 }
 ```
 
 ```
 {
-    "minimo de follows por dia": 4,
-    "maximo de follows por dia": 10,
-    "tempo minimo entre follows": 10,
-    "tempo maximo entre follows": 20
+    "Minimum follows per day": 5,
+    "Maximum follows per day": 10,
+    "Minimum time between follows": 25,
+    "Maximum time between follows": 40,
+    "Watch stories": 1
 }
 ```
 
