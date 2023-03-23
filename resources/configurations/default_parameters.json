@@ -1,0 +1,7 @@
+{
+    "Minimum follows per day": 5,
+    "Maximum follows per day": 10,
+    "Minimum time between follows": 25,
+    "Maximum time between follows": 40,
+    "Watch stories": 1
+}

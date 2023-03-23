@@ -3,6 +3,7 @@ import time
 from pynput import keyboard
 from termcolor import colored
 from tqdm import tqdm
+from modules.json_manipulation import *
 
 cores =["black", "red", "green", 'yellow', 'blue', 'magenta', 'cyan', 'white', 'light_grey', 'dark_grey', 'light_red', 'light_green', 'light_yellow', 'light_blue', 'light_magenta', 'light_cyan']
 
@@ -12,5 +13,6 @@ for cor in cores:
 from tqdm import tqdm
 import time
 
-for i in tqdm(range(10)):
+for i in tqdm(range(2)):
     time.sleep(1)
+

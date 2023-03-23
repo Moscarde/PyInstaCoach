@@ -4,3 +4,5 @@ resources/configurations/coordenadas_analise.json
 resources/configurations/coordenadas_segue.json
 parametros.json
 teste.py
+resources/accounts_list.json
+teste.py

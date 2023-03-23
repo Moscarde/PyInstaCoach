@@ -1,4 +1,4 @@
-<h1 align="center"><img src="logo.png" alt="logo" width=800/></h1>
+<h1 align="center"><img src="pictures/logo.png" alt="logo" width=800/></h1>
 
 Esse script tem como objetivo ajudar na análise de contas no Instagram, facilitando a criação de um banco de contas com maior probabilidade de engajamento e permitindo seguir, visualizar stories e curtir publicações automaticamente.
 
@@ -51,7 +51,7 @@ Os arquivos de configurações são `coordenadas.json` e `parametros.json` que c
 As configurações do arquivo podem ser ajustadas de acordo com as necessidades do usuário diretamente no .json ou pelo main.py
 
 ## Prints e GIFs 📸🎥
-Breve ↻
+<img src="pictures/exemple.gif" alt="logo" width=800/>
 
 ## Limitações ⚠️
 

@@ -1,41 +1,36 @@
-from modules.configura_parametros import configura_parametros
-from modules.analisa_contas import analisa_contas
-from modules.segue_contas import segue_contas
-from modules.configura_coordenadas import *
+from modules.configure_parameters import configure_parameters
+from modules.analyze_accounts import analyze_accounts
+from modules.follow_accounts import follow_accounts
+from modules.configure_coordinates import *
 from modules._ import _
 from modules.print_color import *
 
-def exibir_menu():
-    print_menu("Escolha uma das opções abaixo e pressione ENTER.")
+def show_options():
+    print_cyan("Escolha uma das opções abaixo e pressione ENTER.")
+    print_cyan(" [1] Analisar e salvar contas")
+    print_cyan(" [2] Seguir contas salvas")
+    print_cyan(" [3] Configurar quantidade de follows diarias e intervalos")
+    print_cyan(" [4] Fechar script")
 
-    print_menu(" [1] Analisar e salvar contas")
-    print_menu(" [2] Seguir contas salvas")
-    print_menu(" [3] Configurar quantidade de follows diarias e intervalos")
-    print_menu(" [4] Fechar script")
-
-
-def obter_opcao_desejada():
-    opcao = input("> ")
-    return opcao.strip()
-
-
+# Main function (Modules options)
 def main():
-    exibir_menu()
-    opcao = obter_opcao_desejada()
+    print_bold("Bem vindo ao PyInstaCoach")
+    show_options()
+    option = input("> ")
 
-    if opcao == "1":
-        analisa_contas()
+    if option == "1":
+        analyze_accounts()
         main()
-    elif opcao == "2":
-        segue_contas()
+    elif option == "2":
+        follow_accounts()
         main()
-    elif opcao == "3":
-        configura_parametros()
+    elif option == "3":
+        configure_parameters()
         main()
-    elif opcao == "4":
+    elif option == "4":
         print("Fechando script...")
         exit()
-    elif opcao == "5":
+    elif option == "5":
         _()
     else:
         print("Opção inválida. Tente novamente.")

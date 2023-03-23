@@ -1,16 +1,24 @@
 from termcolor import colored
 
-def print_menu(texto):
+#menu
+def print_cyan(texto):
     print(colored(texto, "cyan"))
 
-def print_erro(texto):
-    print(colored(texto, "light_red", "on_white"))
 
-def print_seguiu(texto):
+#erro
+def print_red(texto):
+    print(colored(texto, "light_red"))
+
+#seguiu
+def print_green(texto):
     print(colored(texto, "light_green"))
 
-def print_nao_seguiu(texto):
+#nao seguiu
+def print_pink(texto):
     print(colored(texto, "light_blue"))
+
+def print_bold(texto):
+    print(colored(texto, "light_blue", "on_black", ["bold", "blink"] ))
 
 #black, red, green, yellow, blue, magenta, cyan, 
 # white, light_grey, dark_grey, light_red, 
