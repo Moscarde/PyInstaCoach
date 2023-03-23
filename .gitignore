@@ -6,3 +6,6 @@ parametros.json
 teste.py
 resources/accounts_list.json
 teste.py
+modules/analyze_accounts.py
+resources/configurations/analyze_coordinates.json
+resources/configurations/parameters.json

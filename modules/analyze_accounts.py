@@ -115,7 +115,8 @@ def analyze_accounts():
     check_coordinates()
 
     print("Checagens concluidas...")
-
+    print_red("DICA: Abra diversas guias com perfis que acabaram de seguir")
+    print_red("ou curtir alguma foto de outra conta de nicho parecido")
     # Print instructions / options
     show_options()
 
